@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage>{
 
          //stories of the useres
          Container(
-           height: 120,
+           height: 90,
            child: Column(
 
 
@@ -105,14 +105,19 @@ class _MyHomePageState extends State<MyHomePage>{
 
                  }),
                ),
-               Text("Latest Feeds"),
+
 
              ],
 
            ),
          ),
+         Container(
 
+             child: Text("Latest Feeds",style: TextStyle(color: Colors.pink,fontSize: 18),)
+         ),
+        //**************************************************************************
          // posts of the users
+         //*************************************************************************
          Expanded(
 
            child: ListView.builder(
@@ -120,50 +125,94 @@ class _MyHomePageState extends State<MyHomePage>{
 
                itemCount: posts?.length,
                itemBuilder: (context,index)
+
                {
                  return Container(
-                   height: 300,
-                   padding: EdgeInsets.all(20),
+
+                   padding: EdgeInsets.all(15.0),
+                   decoration: BoxDecoration(
+                     border: Border.all(color: Colors.black45),
+                     borderRadius: BorderRadius.circular(8.0),
+                   ),
+
 
                    child: Column(
+
+
                      children: [
-                       Row(
-                         children: [
-                           ClipRRect(
-                             borderRadius: BorderRadius.circular(200),
 
 
-                             child: Image(
-                               image: NetworkImage(posts![index].body),
-                               height: 30,
-                               width: 30,
+                       Container(
+                         decoration: BoxDecoration(
+                           border: Border.all(color: Colors.black45),
+                           borderRadius: BorderRadius.circular(8.0),
+                         ),
+                         child: Row(
+
+
+                           children: [
+                             ClipRRect(
+                               borderRadius: BorderRadius.circular(200),
+
+
+                               child: Image(
+                                 image: NetworkImage(posts![index].body),
+                                 height: 30,
+                                 width: 30,
+                               ),
                              ),
-                           ),
-                           Text(
-                             posts![index].title,
-                             maxLines: 2,
-                             style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                             Text(
+                               "   ",
+                               maxLines: 2,
+                               style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                             Text(
+                               posts![index].title,
+                               maxLines: 2,
+                               style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
 
 
 
-                           SizedBox(width: 16),
+                             SizedBox(width: 16),
 
-                         ],
-                       ),
-                       ClipRRect(
-
-
-
-                         child: Image(
-                           image: NetworkImage(posts![index].body),
-                           height: 200,
-                           width: 200,
+                           ],
                          ),
                        ),
-                       Text(
-                         posts![index].body,
-                         maxLines: 2,
-                         style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                       Container(
+                         decoration: BoxDecoration(
+                           border: Border.all(color: Colors.black45),
+                           borderRadius: BorderRadius.circular(15.0),
+                         ),
+                         child: ClipRRect(
+
+                           child: Image(
+                             image: NetworkImage(posts![index].body),
+                             height: 200,
+                             width: 200,
+                           ),
+                         ),
+                       ),
+                       Container(
+
+
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+
+
+                           children: [
+                             Text(
+                               "Link",
+                               maxLines: 2,
+
+                               style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                             Text(
+                               posts![index].body,
+                               maxLines: 2,
+                               style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+
+                           ],
+                         ),
+                       ),
+
 
                      ],
                    ),
@@ -171,6 +220,7 @@ class _MyHomePageState extends State<MyHomePage>{
 
                }),
          ),
+
        ],
      ),
 
