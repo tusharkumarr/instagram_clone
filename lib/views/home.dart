@@ -170,8 +170,6 @@ class _MyHomePageState extends State<MyHomePage>{
                                maxLines: 2,
                                style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
 
-
-
                              SizedBox(width: 16),
 
                            ],
@@ -181,9 +179,9 @@ class _MyHomePageState extends State<MyHomePage>{
                          decoration: BoxDecoration(
                            border: Border.all(color: Colors.black45),
                            borderRadius: BorderRadius.circular(15.0),
+
                          ),
                          child: ClipRRect(
-
                            child: Image(
                              image: NetworkImage(posts![index].body),
                              height: 200,
@@ -192,11 +190,8 @@ class _MyHomePageState extends State<MyHomePage>{
                          ),
                        ),
                        Container(
-
-
                          child: Column(
                            crossAxisAlignment: CrossAxisAlignment.start,
-
 
                            children: [
                              Text(
@@ -204,10 +199,19 @@ class _MyHomePageState extends State<MyHomePage>{
                                maxLines: 2,
 
                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                             Text(
-                               posts![index].body,
-                               maxLines: 2,
-                               style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),),
+                             GestureDetector(
+                               onTap: (){
+                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                   content: Text("Hello this is the body"),
+                                 ));
+                               },
+                               child: Text(
+                                 posts![index].body,
+                                 maxLines: 2,
+                                 style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),
+                               ),
+                             ),
+
 
                            ],
                          ),
